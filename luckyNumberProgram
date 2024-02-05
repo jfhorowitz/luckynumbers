@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+// Define a struct to store lucky numbers
+struct LuckyNumbers {
+    int number1;
+    int number2;
+    int number3;
+};
+
+// Function prototype
+LuckyNumbers calculateLuckyNumbers(int favoriteNumber);
+
+int main() {
+    
+    //definitions
+    int favoriteNumber;
+    
+    //get user input
+    cout << "Enter your favorite number: ";
+    cin >> favoriteNumber;
+
+    // calculation
+    LuckyNumbers luckyNumber = calculateLuckyNumbers(favoriteNumber);
+    
+    //output
+    cout << "Here are your lucky numbers:" << endl;
+    cout << "Lucky Number 1: " << luckyNumber.number1 << endl;
+    cout << "Lucky Number 2: " << luckyNumber.number2 << endl;
+    cout << "Lucky Number 3: " << luckyNumber.number3 << endl;
+
+    return 0;
+}
+
+//function definition
+LuckyNumbers calculateLuckyNumbers(int favoriteNumber) {
+    LuckyNumbers lucky;
+    lucky.number1 = favoriteNumber * favoriteNumber;
+    lucky.number2 = favoriteNumber * favoriteNumber * favoriteNumber;
+    lucky.number3 = favoriteNumber % 2;
+    return lucky;
+}
